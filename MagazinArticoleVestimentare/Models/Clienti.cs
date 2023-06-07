@@ -12,5 +12,9 @@ namespace MagazinArticoleVestimentare.Models
         public string Adresa { get; set; }
 
         public string Tara { get; set; }
+
+        //Relationships
+        public List<Comanda> Comenzi { get; set; }
+
     }
 }

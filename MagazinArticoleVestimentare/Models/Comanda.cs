@@ -13,7 +13,7 @@ namespace MagazinArticoleVestimentare.Models
 
         //Relantionships
 
-        public List<ProdusComandat> ProduseComandate { get; set; }
+        public List<ProdusComandat> ProdusComandat { get; set; }
 
         //Clienti
         public int ClientId { get; set; }

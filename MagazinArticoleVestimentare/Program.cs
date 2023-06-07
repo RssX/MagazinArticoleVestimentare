@@ -1,9 +1,10 @@
 using MagazinArticoleVestimentare.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 //DbContext Configuration
-builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer("DefaultConnectionString"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
