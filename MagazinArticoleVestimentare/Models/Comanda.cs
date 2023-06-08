@@ -17,7 +17,7 @@ namespace MagazinArticoleVestimentare.Models
 
         //Clienti
         public int ClientId { get; set; }
-        [ForeignKey("ClientIdFK")]
+        [ForeignKey("ClientId")]
         public Clienti Clienti { get; set; }
 
 
