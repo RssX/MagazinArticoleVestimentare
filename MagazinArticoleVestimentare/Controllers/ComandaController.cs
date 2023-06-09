@@ -1,20 +1,22 @@
 ﻿using MagazinArticoleVestimentare.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MagazinArticoleVestimentare.Controllers
 {
-    public class ProduseController : Controller
+    public class ComandaController : Controller
     {
         private readonly AppDbContext _context;
-        public ProduseController(AppDbContext context)
+
+        public ComandaController(AppDbContext context)
         {
-             _context = context;
+            _context = context;
         }
+
         public IActionResult Index()
         {
-            var data = _context.Produse.ToList();
-            return View(data);
-
+            var toateComenzile = _context.Comanda.ToList();
+            return View();
         }
     }
 }

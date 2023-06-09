@@ -12,7 +12,7 @@ namespace MagazinArticoleVestimentare.Controllers
         }
         public IActionResult Index()
         {
-            var allClienti = _context.Clienti.ToList();
+            var totiClientii = _context.Clienti.ToList();
             return View();
         }
     }

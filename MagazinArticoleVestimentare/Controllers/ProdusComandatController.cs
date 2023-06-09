@@ -3,18 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MagazinArticoleVestimentare.Controllers
 {
-    public class ProduseController : Controller
+    public class ProdusComandatController : Controller
     {
         private readonly AppDbContext _context;
-        public ProduseController(AppDbContext context)
+        public ProdusComandatController(AppDbContext context)
         {
-             _context = context;
+            _context = context;
         }
         public IActionResult Index()
         {
-            var data = _context.Produse.ToList();
-            return View(data);
-
+            var produseComandate = _context.ProdusComandat.ToList();
+            return View();
         }
     }
 }
