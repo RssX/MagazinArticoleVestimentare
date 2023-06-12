@@ -7,15 +7,15 @@ namespace MagazinArticoleVestimentare.Models
     {
         [Key]
         public int ProdusId { get; set; }
-        [Display(Name="Numele produsului")]
+        [Display(Name="Produs")]
         public string Nume { get; set; }
-        [Display(Name = "Marimea")]
+        [Display(Name = "Marime")]
         public string Marime { get; set; }
-        [Display(Name = "Url Imagine")]
+        [Display(Name = "Imagine")]
         public string ImagineProdusUrle { get; set; }
-        [Display(Name = "Cantitatea in stoc")]
+        [Display(Name = "Cantitatea în stoc")]
         public int CantitateInStoc { get; set; }
-        [Display(Name = "Pretul produsului")]
+        [Display(Name = "Preț")]
         public double Pret { get; set; }
 
         public CategorieProdus CategorieProdus { get; set; }

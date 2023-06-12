@@ -13,31 +13,55 @@
 
 <div class="row">
     <div class="col-md-8 offset-md-2">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model=>model.Nume)
+                        @Html.DisplayNameFor(model=>model.ImagineProdusUrle)
                     </th>
                                         <th>
+                        @Html.DisplayNameFor(model=>model.Nume)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model=>model.Marime)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model=>model.ImagineProdusUrle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model=>model.CantitateInStoc)
-                    </th>
-                                        <th>
                         @Html.DisplayNameFor(model=>model.Pret)
                     </th>
+                                        <th>
+                        @Html.DisplayNameFor(model=>model.CantitateInStoc)
+                    </th>
                     <th>
-                        Actions
+                        Acțiuni
                     </th>
                 </tr>
             </thead>
             <tbody>
-
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            <img class="" src="@item.ImagineProdusUrle" style="max-width: 200px" />
+                        </td>
+                        <td class ="align-middle">
+                            @Html.DisplayFor(modelItem => item.Nume)
+                        </td>
+                        <td class ="align-middle">
+                            @Html.DisplayFor(modelItem => item.Marime)
+                        </td>
+                        <td class ="align-middle">
+                            @Html.DisplayFor(modelItem => item.Pret)$
+                        </td>
+                        <td class ="align-middle">
+                            @Html.DisplayFor(modelItem => item.CantitateInStoc)
+                        </td>
+                        <td class ="align-middle">
+                            <a class="btn btn-primary"><i class="bi bi-pencil-square"></i>Edit</a> | 
+                            <a class="btn btn-info"><i class="bi bi-eye"></i>Details</a> | 
+                            <a class="btn btn-danger text-white"><i class="bi bi-trash"></i>Delete</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
 
         </table>
