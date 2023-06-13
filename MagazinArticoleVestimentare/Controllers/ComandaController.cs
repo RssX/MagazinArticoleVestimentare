@@ -16,7 +16,7 @@ namespace MagazinArticoleVestimentare.Controllers
         public IActionResult Index()
         {
             var toateComenzile = _context.Comanda.ToList();
-            return View();
+            return View(toateComenzile);
         }
     }
 }

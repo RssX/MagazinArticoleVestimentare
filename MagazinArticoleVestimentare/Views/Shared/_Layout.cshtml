@@ -19,14 +19,33 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <ul class="navbar-nav">
+                        <li class="navbar-nav flex-grow-1">
+                            <a class="nav-link text-dark" asp-controller="Produse" asp-action="Index"><i class="badge-info bi-shop"></i> Produse</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+                                role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-gear"></i> Management
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Comanda" asp-action="Index">
+                                    <i class="bi bi-collection"></i> Comenzi</a>
+                                <a class="dropdown-item" asp-controller="Clienti" asp-action="Index">
+                                    <i class="bi bi-person-lines-fill"></i> Clienti
+                                </a>
+                            </div>
                         </li>
                     </ul>
+
+                    </a>
+                    </a>
+                    <form class="form-inline my-2 my-lg-0" style="padding-right: 25px;display:flex;" asp-controller="Produse" asp-action="Filter">
+                        <input name="searchString" type="text" class="form-control" placeholder="Search for a movie" />
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -39,7 +58,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - MagazinArticoleVestimentare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - MagazinArticoleVestimentare
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

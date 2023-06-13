@@ -16,6 +16,16 @@ namespace MagazinArticoleVestimentare.Data
                 //Add Clienti
                 if (!context.Clienti.Any())
                 {
+                    context.Clienti.AddRange(new List<Clienti>()
+                    {
+                        new Clienti()
+                        {
+                            Nume= "Badea Adrian",
+                            Adresa= "Str. Molidului, Brasov",
+                            Tara = "Romania",
+                        }
+                    });
+                    context.SaveChanges();
 
                 }
                 //Add Comanda

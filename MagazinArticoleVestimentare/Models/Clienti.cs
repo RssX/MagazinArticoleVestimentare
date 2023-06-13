@@ -5,6 +5,7 @@ namespace MagazinArticoleVestimentare.Models
     public class Clienti
     {
         [Key]
+        [Display(Name = "ID")]
         public int ClientId { get; set; }
 
         public string Nume { get; set; }
