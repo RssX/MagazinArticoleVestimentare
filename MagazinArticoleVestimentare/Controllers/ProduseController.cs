@@ -1,20 +1,26 @@
 ﻿using MagazinArticoleVestimentare.Data;
+using MagazinArticoleVestimentare.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MagazinArticoleVestimentare.Controllers
 {
     public class ProduseController : Controller
     {
-        private readonly AppDbContext _context;
-        public ProduseController(AppDbContext context)
+        private readonly IProduseServices _service;
+        public ProduseController(IProduseServices service)
         {
-             _context = context;
+             _service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _context.Produse.ToList();
+            var data = await _service.GetAll();
             return View(data);
+        }
 
+        //Get request Produse/Create
+        public IActionResult Create()
+        {
+            return View();
         }
     }
 }

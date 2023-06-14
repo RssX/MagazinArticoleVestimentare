@@ -1,18 +1,19 @@
 ﻿using MagazinArticoleVestimentare.Data;
+using MagazinArticoleVestimentare.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MagazinArticoleVestimentare.Controllers
 {
     public class ClientiController : Controller
     {
-        private readonly AppDbContext _context;
-        public ClientiController(AppDbContext context)
+        private readonly IProduseServices _service;
+        public ClientiController(IProduseServices service)
         {
-            _context = context;
+            _service = service;
         }
         public IActionResult Index()
         {
-            var totiClientii = _context.Clienti.ToList();
+            var totiClientii = _service.GetAll();
             return View(totiClientii);
         }
     }

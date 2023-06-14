@@ -1,0 +1,45 @@
+﻿@model Produse
+
+@{
+    ViewData["Title"] = "Adăugare produs";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Adaugă produs</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </form>
+                <div class="form-group">
+                    <label asp-for="ImagineProdusUrle" class="control-label" ></label>
+                    <input asp-for="ImagineProdusUrle" class="form-control" />
+                    <span asp-validation-for="ImagineProdusUrle" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nume" class="control-label"></label>
+                    <input asp-for="Nume" class="form-control" />
+                    <span asp-validation-for="Nume" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Marime" class="control-label"></label>
+                    <input asp-for="Marime" class="form-control" />
+                    <span asp-validation-for="Marime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CantitateInStoc" class="control-label"></label>
+                    <input asp-for="CantitateInStoc" class="form-control" />
+                    <span asp-validation-for="CantitateInStoc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Pret" class="control-label"></label>
+                    <input asp-for="Pret" class="form-control" />
+                    <span asp-validation-for="Pret" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
