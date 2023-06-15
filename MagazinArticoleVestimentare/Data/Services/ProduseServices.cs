@@ -12,7 +12,8 @@ namespace MagazinArticoleVestimentare.Data.Services
         }
         public void Add(Produse produs)
         {
-            throw new NotImplementedException();
+            _context.Produse.Add(produs);
+            _context.SaveChanges();
         }
 
         public void Delete(int id)

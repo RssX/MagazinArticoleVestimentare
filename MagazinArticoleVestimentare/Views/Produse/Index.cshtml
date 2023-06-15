@@ -30,11 +30,11 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="@item.ImagineProdusUrle" width="100%" alt="@item.Nume" >
+                        <img src="@item.ImagineProdusUrle" width="100%" alt="@item.Nume">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                           
+
                             <p class="card-text"><b>Marime:</b> @item.Marime</p>
                             <p class="card-text"><b>Pret:</b> @item.Pret$</p>
                             <p class="card-text"><b>Categoria: </b> @item.CategorieProdus</p>
@@ -44,10 +44,12 @@
                                 @if (item.CantitateInStoc > 3)
                                 {
                                     <span class="badge bg-success text-white">In stoc</span>
-                                } else if (item.CantitateInStoc <= 3 && item.CantitateInStoc > 0)
+                                }
+                                else if (item.CantitateInStoc <= 3 && item.CantitateInStoc > 0)
                                 {
                                     <span class="badge bg-primary text-white">Stoc limitat</span>
-                                } else
+                                }
+                                else
                                 {
                                     <span class="badge bg-secondary text-white">Stoc epuizat</span>
                                 }
@@ -61,8 +63,7 @@
                                 <a class="btn btn-outline-primary float-right">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
-                                <a class="btn btn-success text-white"
-                                   >
+                                <a class="btn btn-success text-white">
                                     <i class="bi bi-cart-plus"></i> Add to Carts @item.Pret.ToString("c")
                                 </a>
                             </p>
@@ -72,4 +73,9 @@
             </div>
         </div>
     }
+</div>
+
+<div style="position:fixed; right:25px; left:25px;" class="text-white">
+    <a asp-controller="Produse" asp-action="Create" class="btn btn-dark">
+        <i class="bi bi-plus-circle"></i> Adaugă produs </a>
 </div>

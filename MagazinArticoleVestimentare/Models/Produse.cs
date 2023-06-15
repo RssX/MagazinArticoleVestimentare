@@ -8,6 +8,7 @@ namespace MagazinArticoleVestimentare.Models
         [Key]
         public int ProdusId { get; set; }
         [Display(Name="Produs")]
+        [Required(ErrorMessage = "Nume produsului este obligatoriu")]
         public string Nume { get; set; }
         [Display(Name = "Marime")]
         public string Marime { get; set; }
@@ -21,6 +22,7 @@ namespace MagazinArticoleVestimentare.Models
         public CategorieProdus CategorieProdus { get; set; }
 
         //Relationships
-        public List<ProdusComandat> ProdusComandat { get; set; }
+        
+        public List<ProdusComandat>? ProdusComandat { get; set; }
     }
 }
