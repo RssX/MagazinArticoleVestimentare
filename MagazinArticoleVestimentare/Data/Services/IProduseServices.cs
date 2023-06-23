@@ -5,13 +5,13 @@ namespace MagazinArticoleVestimentare.Data.Services
     public interface IProduseServices
     {
 
-        Task<IEnumerable<Produse>> GetAll();
+        Task<IEnumerable<Produse>> GetAllAsync();
 
-        Produse GetById(int id);
+        Task<Produse> GetByIdAsync(int id);
 
-        void Add(Produse produs);
+        Task AddAsync(Produse produs);
 
-        Produse Update(int id, Produse newProdus);
+        Task<Produse> UpdateAsync(int id, Produse newProdus);
 
         void Delete(int id);
     }

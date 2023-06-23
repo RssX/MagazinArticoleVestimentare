@@ -1,0 +1,68 @@
+﻿@model Produse
+
+@{
+    ViewData["Title"] = "Editare produs";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Editează produsul</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group text-center">
+                        <img id="PozaProdusPreview" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImagineProdusUrle" class="control-label"></label>
+                        <input asp-for="ImagineProdusUrle" class="form-control" />
+                        <span asp-validation-for="ImagineProdusUrle" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Nume" class="control-label"></label>
+                        <input asp-for="Nume" class="form-control" />
+                        <span asp-validation-for="Nume" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Marime" class="control-label"></label>
+                        <input asp-for="Marime" class="form-control" />
+                        <span asp-validation-for="Marime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CantitateInStoc" class="control-label"></label>
+                        <input asp-for="CantitateInStoc" class="form-control" />
+                        <span asp-validation-for="CantitateInStoc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Pret" class="control-label"></label>
+                        <input asp-for="Pret" class="form-control" />
+                        <span asp-validation-for="Pret" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Actualizează" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Index">Înapoi</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            var output = document.getElementById('PozaProdusPreview');
+            output.src = $('#ImagineProdusUrle').val();
+        })
+
+        $('#ImagineProdusUrle').on("change", function () {
+            var output = document.getElementById('PozaProdusPreview');
+            output.src = $(this).val();
+        })
+    </script>
+} 

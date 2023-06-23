@@ -10,10 +10,10 @@ namespace MagazinArticoleVestimentare.Data.Services
         {
             _context = context;
         }
-        public void Add(Produse produs)
+        public async Task AddAsync(Produse produs)
         {
-            _context.Produse.Add(produs);
-            _context.SaveChanges();
+            await _context.Produse.AddAsync(produs);
+            await _context.SaveChangesAsync();
         }
 
         public void Delete(int id)
@@ -21,20 +21,23 @@ namespace MagazinArticoleVestimentare.Data.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Produse>> GetAll()
+        public async Task<IEnumerable<Produse>> GetAllAsync()
         {
             var result = await _context.Produse.ToListAsync();
             return result;
         }
 
-        public Produse GetById(int id)
+        public async Task<Produse> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Produse.FirstOrDefaultAsync(n => n.ProdusId == id);
+            return result;
         }
 
-        public Produse Update(int id, Produse newProdus)
+        public async Task<Produse> UpdateAsync(int id, Produse newProdus)
         {
-            throw new NotImplementedException();
-        }
+            _context.Update(newProdus);
+            await _context.SaveChangesAsync();
+            return newProdus;
+        } 
     }
 }

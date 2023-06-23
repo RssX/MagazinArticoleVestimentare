@@ -60,8 +60,8 @@
                     <div class="col-md-12">
                         <div class="card-footer ">
                             <p class="card-text">
-                                <a class="btn btn-outline-primary float-right">
-                                    <i class="bi bi-eye-fill"></i> Show Details
+                                <a class="btn btn-outline-primary float-right"  asp-action="Detalii" asp-route-id="@item.ProdusId" >
+                                    <i class="bi bi-eye-fill"></i> Detalii
                                 </a>
                                 <a class="btn btn-success text-white">
                                     <i class="bi bi-cart-plus"></i> Add to Carts @item.Pret.ToString("c")

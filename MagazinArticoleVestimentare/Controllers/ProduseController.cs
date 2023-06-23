@@ -14,7 +14,7 @@ namespace MagazinArticoleVestimentare.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAll();
+            var data = await _service.GetAllAsync();
             return View(data);
         }
 
@@ -24,8 +24,9 @@ namespace MagazinArticoleVestimentare.Controllers
             return View();
         }
 
+        //Post request
         [HttpPost]
-        public IActionResult Create([Bind("ImagineProdusUrle, Nume, Marime, CantitateInStoc, Pret")]Produse produs)
+        public async Task<IActionResult> Create([Bind("ImagineProdusUrle, Nume, Marime, CantitateInStoc, Pret")]Produse produs)
         {
 
             if (!ModelState.IsValid)
@@ -34,7 +35,43 @@ namespace MagazinArticoleVestimentare.Controllers
 
             }
 
-            _service.Add(produs);
+            await _service.AddAsync(produs);
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        //Get Produse/Detalii/id
+        public async Task<IActionResult> Detalii(int id)
+        {
+            var detaliiProduse = await _service.GetByIdAsync(id);
+            if (detaliiProduse == null) return View("NotFound");
+            return View(detaliiProduse); 
+
+
+        }
+
+        //Get request Produse/Create
+        public async Task<IActionResult> Edit(int id)
+        {
+            var detaliiProduse = await _service.GetByIdAsync(id);
+            if (detaliiProduse == null) return View("NotFound");
+            return View(detaliiProduse);
+        }
+
+        //Post request
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, 
+            [Bind("ProdusId, ImagineProdusUrle, Nume, Marime, CantitateInStoc, Pret")] 
+            Produse produs)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(produs);
+
+            }
+
+            await _service.UpdateAsync(id, produs);
             return RedirectToAction(nameof(Index));
 
         }
